@@ -1,5 +1,6 @@
-from pprint import pprint
+from time import gmtime, strftime
 
-pprint('Hello World')
+buildtime = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
+print(buildtime)
 
