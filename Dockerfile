@@ -1,4 +1,5 @@
 FROM python:alpine
+MAINTAINER maxmad
 
 WORKDIR /usr/src/app
 
