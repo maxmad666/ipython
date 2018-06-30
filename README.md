@@ -16,3 +16,14 @@ docker run -it --rm --name ipython \
 maxmad/ipython \
 ipython app.py
 ```
+
+## "persistens"
+```bash
+docker run -it --name ipython \
+-v "$PWD":/usr/src/app \
+maxmad/ipython \
+ipython app.py
+
+docker start ipython
+docker attach ipython
+```
