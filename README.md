@@ -1,11 +1,16 @@
-# ipython
+## ipython console
 ```bash
 docker run -it --rm --name ipython maxmad/ipython
+```
 
-# run command
-docker run -it --rm --name ipython maxmad/ipython ipython -c "print('Hello World!')"
+## run python function
+```bash
+docker run -it --rm --name ipython maxmad/ipython ipython -c \
+'print("Hello World!")'
+```
 
-# mount app volume
+## mount app volume
+```bash
 docker run -it --rm --name ipython \
 -v "$PWD":/usr/src/app \
 maxmad/ipython \
