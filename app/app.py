@@ -1,6 +1,5 @@
-from time import gmtime, strftime
+import os
+system_name = os.getenv('HOSTNAME')
 
-buildtime = strftime("%Y-%m-%d %H:%M:%S", gmtime())
-
-print(buildtime)
+print("ContainerID: ", system_name)
 
