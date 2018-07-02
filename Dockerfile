@@ -13,4 +13,9 @@ RUN pip install --no-cache-dir ipython
 
 COPY app/. ./
 
-CMD ["ipython", "-i", "app.py"]
+COPY entrypoint.sh /entrypoint.sh
+
+RUN chmod +x /entrypoint.sh
+
+# start it
+CMD ["/entrypoint.sh"]
