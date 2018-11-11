@@ -1,5 +1,10 @@
-#!/bin/bash
+#!/bin/sh
+set -e
 
-pip install --no-cache-dir -r requirements.txt
+file="requirements.txt"
 
-ipython -i app.py
+if [ -f "$file" ]; then
+    pip install --no-cache-dir -r "$file"
+fi
+
+exec "$@"

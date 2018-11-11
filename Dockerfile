@@ -1,21 +1,13 @@
-FROM python:alpine
-
-RUN apk update && \
-    apk add bash
+FROM python:3.7.1-alpine3.8
 
 WORKDIR /usr/src/app
 
-COPY app/requirements.txt ./
+RUN apk --no-cache add --virtual build-deps gcc musl-dev python3-dev \
+    && pip install --no-cache-dir -U ipython \
+    && apk del build-deps
 
-RUN pip install --no-cache-dir -r requirements.txt
+COPY entrypoint.sh /
 
-RUN pip install --no-cache-dir ipython 
+ENTRYPOINT ["sh", "/entrypoint.sh"]
 
-COPY app/. ./
-
-COPY entrypoint.sh /entrypoint.sh
-
-RUN chmod +x /entrypoint.sh
-
-# start it
-CMD ["/entrypoint.sh"]
+CMD ["ipython"]

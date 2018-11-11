@@ -1,6 +1,8 @@
 ## ipython console
 ```bash
-docker run -it --rm --name ipython maxmad/ipython
+docker run -it --name ipython \
+-v requirements.txt:/usr/src/app/requirements.txt:ro \
+maxmad/ipython
 ```
 
 ## run python function
